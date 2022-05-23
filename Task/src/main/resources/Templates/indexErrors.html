@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Exception Errors</title>
+<style>
+body{
+background-color:none;
+}
+h5{
+text-align:center;
+color:red;
+}
+h1,h3{
+text-align:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+<div>
+		
+	<h1>Oops....</h1>
+	<br/><br/>
+	<h3>Error message :
+	<h5 th:text="${error}"></h5></h3>
+	<h3> Status code :
+	<h5 th:text="${status}"></h5></h3>
+	<h3>Time and Date error :
+	<h5 th:text="${timestamp}"></h5></h3>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Create New Employee</title>
+<style>
+body{
+display:flex;
+height:100eh;
+justify-content:center;
+align-items:center;
+padding:10px;
+
+}
+h1{
+
+text-align:left;
+color:blue;
+background-color:lightblue;
+}
+table input[type=text]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table input[type=date]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table td{
+font-size: 30px;
+color:none;
+
+}
+button[type=submit] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+a[type=back] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+div{
+border-radius: 5px;
+background-color:lightblue;
+padding:20px;
+}
+
+
+</style>
+
+</head>
+<body>
+<!-- creating new employee details -->
+    <div class="register">
+        <h1>Add new Department</h1><br>
+<!-- creating new employee details on action saveEmployee to mapping in controller-->
+        <form name="myform" onsubmit="return validateForm()" action="#" th:action="@{/saveDepartment}" th:object="${department}" method="POST">
+			<table>
+		<tr>
+		<td>Department id*:</td>
+                    <td><input type="text" name="id"
+				placeholder="Enter department id " class="form-control" th:field="*{id}" required/>
+	    </td>
+		</tr>
+		<tr>
+        <td>Department Name *:</td>
+                <td><input type="text" name="fname"
+				placeholder="Enter department Name" class="form-control" th:field="*{name}" required/></td>
+		
+	</table>
+	<!-- below two buttons are creating new employee details and another one return to home-->
+    <button type="submit" class="btn btn-info">Add Department</button> 
+	<a type="back" th:href = "@{/department}" class="btn btn-primary btn-sm mb-3"> Back to Department </a>
+    </form>
+    
+    </div>
+<script src="" th:src="@{/js/validation.js}"></script>
+</body>
+</html>

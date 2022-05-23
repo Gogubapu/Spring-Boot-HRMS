@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Employee</title>
+<style>
+h1{
+
+text-align:left;
+color:blue;
+background-color:lightblue;
+}
+table input[type=text]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table input[type=date]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table td{
+font-size: 30px;
+color:none;
+
+}
+button[type=submit] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+a[type=back] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+div{
+border-radius: 5px;
+background-color:lightblue;
+padding:20px;
+}
+body{
+background-image:url('bapu.jpg');
+display:flex;
+height:100eh;
+justify-content:center;
+align-items:center;
+padding:10px;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="register">
+	<!-- in this form updating form details -->
+        <h1>update Employee details</h1><br>
+	<!-- in this form updating form action on saveEmployee mapping in controller-->
+        <form name="myform" onsubmit="return validateForm()" action="#" th:action="@{/updateEmployee}" th:object="${employee}" method="POST">
+			<table>
+		<tr>
+		<td>Employee id*:</td>
+                    <td><input type="text" name="id"
+				placeholder="Enter Employee id.. " class="form-control" th:field="*{id}" required/>
+	    </td>
+		</tr>
+		<tr>
+        <td>First Name *:</td>
+                <td><input type="text" name="fname"
+				placeholder="Employee First Name.." class="form-control" th:field="*{firstname}" required/></td>
+        </tr>
+        <tr>
+            <td>Last Name *:</td>
+            <td><input type="text" name="lname"
+				placeholder="Employee last Name.." class="form-control" th:field="*{lastname}" required/></td>
+        </tr>
+        <tr>
+            <td>Email *:</td>
+            <td><input type="text" name="email"
+				placeholder="Employee email-id.." class="form-control" th:field="*{email}" required/></td>
+        </tr>
+        <tr>
+             <td>Mobile *:</td>
+             <td><input type="text" name="mobile"
+				placeholder="Employee mobile.." class="form-control" th:field="*{mobile}" required/></td>
+        </tr>   
+		<tr>
+            <td>Address *:</td>
+            <td><input type="text" name="address"
+				placeholder="Employee address.." class="form-control" th:field="*{address}" required/></td>
+        </tr>   
+		<tr>
+            <td>Department *:</td>
+            <td><select th:field="*{department}"><th:block th:each="department:${listdepartments}">
+		<option th:text="${department.name}" th:value="${department.id}"/>
+		</th:block></select></td>
+        </tr>   
+		<tr>
+            <td>Designation *:</td>
+            <td><input type="text" name="role"
+				placeholder="Employee designation.." class="form-control" th:field="*{designation}" required/></td>
+        </tr>   
+		<tr>
+            <td>Project *:</td>
+            <td><select th:field="*{contractor}"><th:block th:each="project:${projects}">
+		<option th:text="${project.projectname}" th:value="${project.id}"/>
+		</th:block></select></td>
+        </tr>  
+		<tr>
+            <td>Manager *:</td>
+            <td><input type="text" name="manager"
+				placeholder="Employee manager.." class="form-control" th:field="*{manager}" required/></td>
+        </tr>   
+		<tr>
+            <td>Location *:</td>
+            <td><select th:field="*{location}"><th:block th:each="loc:${listlocations}" required>
+		<option th:text="${loc.name}" th:value="${loc.id}"/>
+		</th:block></select></td>
+        </tr> 
+		<tr>
+            <td>Date_of_join *:</td>
+            <td><input type="date" name="joining" class="form-control" th:field="*{doj}" required/></td>
+        </tr> 
+		<tr>
+            <td>Date_of_terminate :</td>
+            <td><input type="date" name="termination" class="form-control" th:field="*{dot}" /></td>
+        </tr>
+	
+	<tr>
+            <td>Employee_Status :</td>
+            <td><input type="status" name="status" class="form-control" th:field="*{status}" required/></td>
+        </tr>	
+		
+	</table>
+    <button type="submit" class="btn btn-info">Update</button> 
+	<a type="back" th:href = "@{/}" class="btn btn-primary btn-sm mb-3"> Back to Home </a>
+    </form>
+    
+    </div>
+<script type="text/javascript" src="" th:src="@{js/validation.js}"></script>
+</body>
+</html>

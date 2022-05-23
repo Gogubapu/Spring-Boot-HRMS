@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>calculator</title>
+<style>
+div{
+  float: left;
+  transform: translate(25%,5%);
+  }
+div[type=2nd]{
+
+  float: right;
+  transform: translate(25%,5%);
+  }
+a[type=button]{
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:16px 32px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+h1{
+	text-align:center;
+	color:skyblue;
+}
+input[type=submit]{
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:8px 16px;
+	margin:4px 2px;
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+<h1>Welcome to Auto CTC calculator</h1>
+	<br></br><div>	
+		<a type="button" th:href="@{/}">Home</a><br></br><br></br>
+		<form th:action="@{/Calculate}">
+			<input type="text" name="number" id="number" placeholder="enter your package" th:value=${number} required />
+			<br></br>
+			<input type="submit" value="Calculate" />
+		</form>
+
+		<table border="1" cellpadding="10">
+			<caption>Pay Slip</caption>
+			<thead>
+				<tr>
+					<th></th>	
+					<th>Earnings:</th>	
+					<th>Deduction:</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Basic Pay:</td>
+					<td th:text="${basic}"></td>
+				</tr>
+				<tr>
+					<td>House_Rental_Allowance:</td>
+					<td th:text="${hra}"></td>
+				</tr>
+				<tr>
+					<td>Conveyance_Allowance:</td>
+					<td th:text="${ca}">
+				</tr>
+				<tr>	
+					<td>Medical_Allowance:</td>
+					<td th:text="${medical_Allowance}"></td>
+				</tr>
+				<tr>	
+					<td>Special_Allowance:</td>
+					<td th:text="${special_Allowance}"></td></tr>
+				<tr>	
+					<td>Meal_Coupan:</td>
+					<td th:text="${meal_coupan}"></td></tr>
+				
+				<tr>	
+					<td>Professional Tax:</td>
+					<td th:text="${professional_tax}"></td>
+					<td th:text="${professional_tax}"></td></tr>
+				<tr>	
+					<td>Provident fund:</td>
+					<td th:text="${provident_fund}"></td>
+					<td th:text="${provident_fund}"></td>
+				</tr>
+				<tr>
+					<td>Gross Pay:</td>	
+					<td th:text="${grosspay}"></td>
+				</tr>
+				<tr>
+					<td>Deductions:</td>	
+					<td></td>
+					<td th:text="${deductions}"></td>
+				</tr>
+			</tbody>
+			<tfooter>
+				<th colspan= "13">TakeHome:[[${takeHome}]]</th>
+			</tfooter>
+		</table>
+				
+				
+				
+				
+				
+</body>
+</html>

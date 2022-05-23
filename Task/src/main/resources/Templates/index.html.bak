@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>hrms</title>
+<link rel="stylesheet" type="css/text" href="main.css">
+<style>
+body{
+background-color:none;
+}
+a[type=button]{
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:16px 32px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+h1{
+text-align:center;
+color:blue;
+}
+table{
+border:1px;
+width:100%;
+}
+th,td{
+text-align: left;
+  padding: 8px;
+  }
+td a[type=edit],a[type=delete]{
+background-color:#04AA6D;
+	border:1;
+	color:white;
+	padding:8px 16px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+	}
+tr{
+color:gray;
+
+}
+input[type=text]{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  transform: translate(-150%, 0%);
+  }
+  input[type=submit]{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: litegray;
+  font-size: 17px;
+  border: 2px;
+  cursor: pointer;
+  transform: translate(0%, -65%);
+  }
+
+</style>
+</head>
+<body>
+<div>
+		
+	<h1>Employee management System</h1>
+	
+	<a type="button" href="addEmployee">Create New Employee</a>
+	
+	<br/><br/>
+	<form th:action="@{/}" >
+		<input type="text" name="keyword" id="keyword" placeholder="search details..." th:value="${keyword}" required />
+		<br>
+		<input type="submit" value="Search" />
+	</form>
+	<br/><br/>
+	
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Employee id</th>
+				<th>Employee First Name</th>
+				<th>Employee Last Name</th>
+				<th>Employee Email</th>
+				<th>Employee Mobile</th>
+				<th>Employee Address</th>
+				<th>Employee department</th>
+				<th>Employee designation</th>
+				<th>Employee manager</th>
+				<th>Employee location</th>
+				<!--<th>Employee date_of_joining</th>
+				<th>Employee date_of_termination</th>-->
+				
+				<th>Actions</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="employee : ${listemployees}">
+				<td th:text="${employee.id}"></td>
+				<td th:text="${employee.firstname}"></td>
+				<td th:text="${employee.lastname}"></td>
+				<td th:text="${employee.email}"></td>
+				<td th:text="${employee.mobile}"></td>
+				<td th:text="${employee.address}"></td>
+				<td th:text="${employee.department}"></td>
+				<td th:text="${employee.designation}"></td>
+				<td th:text="${employee.manager}"></td>
+				<td th:text="${employee.location}"></td>
+				<!--<td th:text="${employee.doj}"></td>
+				<td th:text="${employee.dot}"></td>-->
+				<td>
+					<a type="edit" th:href="@{'/edit/' + ${employee.id}}"> Edit </a>
+					<br/><br/>
+					<a type="delete" th:href="@{'/delete/' + ${employee.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

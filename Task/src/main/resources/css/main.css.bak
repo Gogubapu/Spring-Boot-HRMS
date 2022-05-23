@@ -1,0 +1,8 @@
+input[type=button],input[type=],input[type=]{
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:16px 32px;
+	margin:4px 2px;
+	cursor:pointer;
+}

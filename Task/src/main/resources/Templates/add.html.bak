@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<script type="text/javascript" src="validation.js"></script>
+<meta charset="utf-8" />
+<title>Create New Employee</title>
+<style>
+body{
+display:flex;
+height:100eh;
+justify-content:center;
+align-items:center;
+padding:10px;
+
+}
+h1{
+
+text-align:left;
+color:blue;
+background-color:lightblue;
+}
+table input[type=text]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table input[type=date]{
+ width:100%;
+ padding:12px 20px;
+ margin:8px 0;
+ box-sizing:border-box;
+ border-radius:4px;
+}
+table td{
+font-size: 30px;
+color:none;
+
+}
+button[type=submit] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+a[type=back] {
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:12px 24px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+div{
+border-radius: 5px;
+background-color:lightblue;
+padding:20px;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div class="register">
+        <h1>Create New Employee</h1><br>
+        <form name="myform" action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST" onclick="myFunction()">
+			<table>
+		<tr>
+		<td>Employee id*:</td>
+                    <td><input type="text" name="id"
+				placeholder="Enter Employee id " class="form-control" th:field="*{id}" required/>
+	    </td>
+		</tr>
+		<tr>
+        <td>first Name *:</td>
+                <td><input type="text" name="fname"
+				placeholder="Employee First Name" class="form-control" th:field="*{firstname}" required/></td>
+        </tr>
+        <tr>
+            <td>lastname *:</td>
+            <td><input type="text" name="lname"
+				placeholder="Employee last Name" class="form-control" th:field="*{lastname}" required/></td>
+        </tr>
+        <tr>
+            <td>email *:</td>
+            <td><input type="text" name="email"
+				placeholder="Employee email-id" class="form-control" th:field="*{email}" required/></td>
+        </tr>
+        <tr>
+             <td>mobile *:</td>
+             <td><input type="text" name="mobile"
+				placeholder="Employee mobile" class="form-control" th:field="*{mobile}" required/></td>
+        </tr>   
+		<tr>
+            <td>Address *:</td>
+            <td><input type="text" name="address"
+				placeholder="Employee address" class="form-control" th:field="*{address}" required/></td>
+        </tr>   
+		<tr>
+            <td>Deapartment *:</td>
+            <td><input type="text" name="sector"
+				placeholder="Employee department" class="form-control" th:field="*{department}" required/></td>
+        </tr>   
+		<tr>
+            <td>Designation *:</td>
+            <td><input type="text" name="role"
+				placeholder="Employee designation" class="form-control" th:field="*{designation}" required/></td>
+        </tr>   
+		<tr>
+            <td>Manager *:</td>
+            <td><input type="text" name="manager"
+				placeholder="Employee manager" class="form-control" th:field="*{manager}" required/></td>
+        </tr>   
+		<tr>
+            <td>Location *:</td>
+            <td><input type="text" name="location"
+				placeholder="Employee Location" class="form-control" th:field="*{location}" required/></td>
+        </tr> 
+		<tr>
+            <td>date of join *:</td>
+            <td><input type="date" name="joining" class="form-control" th:field="*{doj}" /></td>
+        </tr> 
+		<tr>
+            <td>date of terminate :</td>
+            <td><input type="date" name="termination" class="form-control" th:field="*{dot}" /></td>
+        </tr>
+		
+	</table>
+    <button type="submit" class="btn btn-info">Register</button> 
+	<a type="back" th:href = "@{/}" class="btn btn-primary btn-sm mb-3"> Back to Home </a>
+    </form>
+    
+    </div>
+</body>
+</html>

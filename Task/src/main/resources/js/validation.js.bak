@@ -1,0 +1,54 @@
+function myFunction(){
+	let id=document.forms["myform"]["id"].value;
+	let fname=document.forms["myform"]["fname"].value;
+	let lname=document.forms["myform"]["lname"].value;
+	let email=document.forms["myform"]["email"].value;
+		atpos=email.indexof("@");
+		dotpos=email.lastindexof(".");
+	let mobile=document.forms["myform"]["mobile"].value;
+	let address=document.forms["myform"]["address"].value;
+	let department=document.forms["myForm"]["sector"].value;
+	let designation=document.forms["myForm"]["role"].value;
+	let manager=document.forms["myForm"]["manager"].value;
+	let location=document.forms["myForm"]["location"].value;
+	
+	if(id==""){
+		alert("pleas enter employee id");
+	}
+	if(fname==""){
+		alert("first name must be filled out");
+		return false;
+	}
+	if else(lname==""){
+		alert("last name must be filled out");
+		return false;
+	}
+	if else(email=="" || ){
+		alert("enter your mobile number.");  
+		return false;  
+	}
+	if(mobile==""||mobile.length != 10){
+		alert("please enter a valid mobile number");
+		return false;
+	}
+	if(address==""){
+		alert("please enter your full address.");
+		return false;
+	}
+	if(department==""){
+		alert("pleas enter your department");
+		return false;
+	}
+	if(designation==""){
+		alert("please enter your  designation");
+		return false;
+	}
+	if(manager==""){
+		alert("please enter your manager name");
+		return false;
+	}
+	if(location==""){
+		alert("please enter your location");
+		return false;
+	}
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>hrms</title>
+<link rel="stylesheet" type="css/text" href="main.css">
+<style>
+body{
+background-color:none;
+}
+a[type=button]{
+	background-color:#04AA6D;
+	border:none;
+	color:white;
+	padding:16px 32px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+}
+h1{
+text-align:center;
+color:blue;
+}
+table{
+border:1px;
+width:100%;
+}
+th,td{
+text-align: left;
+  padding: 8px;
+  }
+td a[type=edit],a[type=delete]{
+background-color:#04AA6D;
+	border:1;
+	color:white;
+	padding:8px 16px;
+	text-decoration:none;
+	margin:4px 2px;
+	cursor:pointer;
+	}
+tr{
+color:gray;
+
+}
+input[type=text]{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  transform: translate(-180%, 0%);
+  }
+  input[type=submit]{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: litegray;
+  font-size: 17px;
+  border: 2px;
+  cursor: pointer;
+  transform: translate(-120%, -65%);
+  }
+
+</style>
+</head>
+<body>
+<div>
+		
+	<h1>Human Resource management System</h1><br></br>
+	
+	<a type="button" th:href="@{/}">HOME</a>
+	<a type="button" th:href="@{/addProject}">Add Project</a>
+	<br/><br/>
+	<!-- form tag taking action on Welcome(/) file -->
+	<!-- creating a table for projection data collected from database -->
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Contract id</th>
+				<th>Contract Name</th>
+				<th>Contract Start Date</th>
+				<th>Contract End Date</th>
+				<th>Actions</th>				
+			</tr>
+		</thead>
+		<tbody> <!-- below employee iterate the listemployyes and project data on table -->
+			<tr th:each="contractor : ${listcontracts}">
+				<td th:text="${contractor.id}"></td>
+				<td th:text="${contractor.projectname}"></td>
+				<td th:text="${contractor.psd}"></td>
+				<td th:text="${contractor.ped}"></td>
+				<td>
+			<!--below two operations update and delete show on web. -->
+					<a type="edit" th:href="@{'/editby/' + ${contractor.id}}"> Edit </a>
+					<br/><br/>
+					<a type="delete" th:href="@{'/deletewiths/' + ${contractor.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
